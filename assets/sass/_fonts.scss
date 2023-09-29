@@ -1,0 +1,43 @@
+@font-face {
+  // font-family: 'Custom Font';
+  // src: url('../fonts/custom.eot');
+  // src: url('../fonts/custom.eot?#iefix') format('embedded-opentype'),
+  //      url('../fonts/custom.woff2') format('woff2'),
+  //      url('../fonts/custom.woff') format('woff');
+  // font-weight:  400;
+  // font-style:   italic;
+  // font-stretch: normal;
+}
+
+@mixin systemFont {
+ 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: normal;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased !important;
+	text-rendering: optimizeLegibility !important;
+}
+
+@mixin font-thin {
+    font-weight: 100;
+}
+@mixin font-light {
+    font-weight: 300;
+}
+@mixin font-reg {
+    font-weight: 400;
+}
+@mixin font-med {
+    font-weight: 500;
+}
+@mixin font-semi-bold {
+    font-weight: 600;
+}
+@mixin font-bold {
+    font-weight: 700;
+}
+@mixin font-heavy {
+    font-weight: 800;
+}
+@mixin font-super-heavy {
+    font-weight: 800;
+}
