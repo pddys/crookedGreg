@@ -19,7 +19,6 @@ export default defineNuxtConfig({
   image: {
     format: 'avif',
     dir: 'public/images',
-    provider: 'ipx',
     screens: {
       'xs': 320,
       'sm': 640,
@@ -32,5 +31,24 @@ export default defineNuxtConfig({
   },
   build: {
     transpile: ['gsap'],
+  },
+  $production: {
+    image: {
+      format: 'avif',
+      dir: 'public/images',
+      provider: 'netlify',
+      netlify: {
+        baseURl: process.env.IMAGES_URL
+      },
+      screens: {
+        'xs': 320,
+        'sm': 640,
+        'md': 768,
+        'lg': 1024,
+        'xl': 1280,
+        'xxl': 1536,
+        '2xl': 1536
+      },
+    },
   },
 })
