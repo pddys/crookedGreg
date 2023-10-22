@@ -17,6 +17,7 @@
     "sass": "^1.67.0"
   },
   "dependencies": {
+    "@nuxt/image": "^1.0.0-rc.3",
     "eslint-plugin-vue": "^9.17.0",
     "gsap": "^3.12.2"
   }

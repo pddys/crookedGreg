@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
+    '@nuxt/image',
   ],
   css: ["@/assets/sass/global.scss"],
   vite: {
@@ -15,7 +16,20 @@ export default defineNuxtConfig({
       },
     },
   },
+  image: {
+    format: 'avif',
+    dir: 'assets/images',
+    screens: {
+      'xs': 320,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536
+    },
+  },
   build: {
     transpile: ['gsap'],
-},
+  },
 })

@@ -10,9 +10,40 @@
             </div>
         </div>
         <div class="c-menu__container">
-            <menuItem />
-            <menuItem />
-            <menuItem />
+            <menuItem
+                title="Grilled Courgette and Goat Cheese Pizza"
+                :ingredients="[
+                    'Thinly sliced grilled courgette/zucchini',
+                    'Crumbled goat cheese or feta cheese',
+                    'Red onion slices',
+                    'Fresh basil leaves',
+                    'Olive oil drizzle',
+                    'Salt and Pepper to taste'
+                ]"
+                imageUrl="/menuItems/marrow_and_goats_cheese_pizza.png"
+            />
+            <menuItem
+                title="Marrow, Ricotta, and Lemon Zest Pizza"
+                :ingredients="[
+                    'Sliced cooked marrow/zucchini',
+                    'Dollops of ricotta cheese',
+                    'Lemon zest for brightness',
+                    'Fresh rosemary leaves',
+                    'Drizzle of extra-virgin olive oil',
+                ]"
+                imageUrl="/menuItems/marrow_ricotta_rosemary_and_lemon_zest_pizza.png"
+            />
+            <menuItem
+                title="Marrow, Pesto, and Pine Nut Pizza"
+                :ingredients="[
+                    'Sliced marrow/zucchini',
+                    'Homemade or store-bought pesto sauce',
+                    'Toasted pine nuts',
+                    'Shredded Parmesan or Asiago cheese',
+                    'Fresh arugula (rocket) for topping after baking',
+                ]"
+                imageUrl="/menuItems/marrow_pesto_and_pine_nut_pizza.png"
+            />
         </div>
     </section>
 </template>
@@ -35,40 +66,184 @@ onMounted(() => {
     const marqueeForwards = self.selector('.forward');
     const marqueeReverse = self.selector('.reverse');
 
+        ScrollTrigger.matchMedia({
+            
+            "(min-width: 769px)": function() {
 
-    // ScrollTrigger.saveStyles(".c-marquee__inner, .c-section--menu");
+                let desktopTL = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: marquee,
+                        start: "middle bottom",
+                        scrub: 5,
+                    }
+                });
 
-        ScrollTrigger.matchMedia({"(min-width: 769px)": function() {
+                desktopTL
+                    .to(marqueeForwards, {duration: 1, xPercent: -20})
+                    .to(marqueeReverse, {duration: 1, xPercent: 20},"<")
+            },
 
-            let desktopTL = gsap.timeline({
-                scrollTrigger: {
-                    trigger: marquee,
-                    start: "middle bottom",
-                    scrub: 32,
-                }
-            });
+            "(max-width: 769px)": function() {
 
-            desktopTL
-                .to(marqueeForwards, {duration: 1, xPercent: -60})
-                .to(marqueeReverse, {duration: 1, xPercent: 60},"<")
+                let desktopTL = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: marquee,
+                        start: "middle bottom",
+                        scrub: 1.5,
+                    }
+                });
+
+                desktopTL
+                    .to(marqueeForwards, {duration: 1, xPercent: -100})
+                    .to(marqueeReverse, {duration: 1, xPercent: 100},"<")
             }
         })
-        ScrollTrigger.matchMedia({"(max-width: 769px)": function() {
 
-            let desktopTL = gsap.timeline({
-                scrollTrigger: {
-                    trigger: marquee,
-                    start: "middle bottom",
-                    scrub: 16,
-                }
-            });
+        const menuContainer = self.selector('.c-menu__container');
+        const menuItems = self.selector('.c-menu-item');
 
-            desktopTL
-                .to(marqueeForwards, {duration: 1, xPercent: -35})
-                .to(marqueeReverse, {duration: 1, xPercent: 35},"<")
-            }
-            })
+        ScrollTrigger.matchMedia({
+            "(min-width: 769px)": function() {
+                menuItems.forEach((item) => {
+                    let menuImg = item.querySelector('img');
+                    let menuTitle = item.querySelector('h3');
+                    let menuIngred = item.querySelector('ul');
+
+                    gsap.set(
+                        menuImg, {
+                            opacity: 0,
+                            scale: 0.875,
+                        },
+                    ),
+                    gsap.to(
+                        menuImg, {
+                            opacity: 1,
+                            scale: 1,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: 'top bottom',
+                                end: 'bottom bottom',
+                                scrub: true,
+                                scrub: 2
+                            },
+                        },
+                    ),
+                    gsap.set(
+                        menuTitle, {
+                            opacity: 0,
+                            scaleY: 0.875,
+                            y: 100,
+                        },
+                    );
+                    gsap.to(
+                        menuTitle, {
+                            opacity: 1,
+                            scaleY: 1,
+                            y: 0,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: 'top bottom',
+                                end: 'bottom bottom',
+                                scrub: 2,
+                            },
+                        }
+                    );
+                    gsap.set(
+                        menuIngred, {
+                            opacity: 0,
+                            scaleY: 0.875,
+                            y: 100,
+                        },
+                    );
+                    gsap.to(
+                        menuIngred, {
+                            opacity: 1,
+                            scaleY: 1,
+                            y: 0,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: 'top bottom',
+                                end: 'bottom bottom',
+                                scrub: 2,
+                            },
+                        }
+                    );
+                });
+            },
+            "(max-width: 769px)": function() {
+                menuItems.forEach((item) => {
+                    let menuImg = item.querySelector('img');
+                    let menuTitle = item.querySelector('h3');
+                    let menuIngred = item.querySelector('ul');
+
+
+                    gsap.set(
+                        menuImg, {
+                            opacity: 0,
+                            scale: 0.875,
+                        },
+                    );
+                    gsap.to(
+                        menuImg, {
+                            opacity: 1,
+                            scale: 1,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: 'top bottom',
+                                end: 'middle -55%',
+                                scrub: true,
+                                markers: true,
+                                scrub: 2
+                            },
+                        },
+                    );
+                    gsap.set(
+                        menuTitle, {
+                            opacity: 0,
+                            scaleY: 0.875,
+                            y: 100,
+                        },
+                    );
+                    gsap.to(
+                        menuTitle, {
+                            opacity: 1,
+                            scaleY: 1,
+                            y: 0,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: 'top bottom',
+                                end: 'bottom bottom',
+                                scrub: 2,
+                            },
+                        }
+                    );
+                    gsap.set(
+                        menuIngred, {
+                            opacity: 0,
+                            scaleY: 0.875,
+                            y: 100,
+                        },
+                    );
+                    gsap.to(
+                        menuIngred, {
+                            opacity: 1,
+                            scaleY: 1,
+                            y: 0,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: 'top bottom',
+                                end: 'bottom bottom',
+                                scrub: 2,
+                            },
+                        }
+                    );
+                });
+            },
+        });
+
     }, main.value); // <- Scope!
+
+
 })
 </script>
 

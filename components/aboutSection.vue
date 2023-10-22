@@ -1,26 +1,45 @@
 <template>
     <section class="c-section c-section--about c-about" ref="main" id="about">
         <div class="c-about__inner">
-            <div class="c-about__main-img">
-                <img src="https://source.unsplash.com/random/1200×900/?wallpaper,nature">
+            <div ref="heroImgContainer" class="c-about__main-img">
+                <NuxtImg
+                    src="about__hero.png"
+                    sizes="100vw sm:50vw md:400px lg:100vw"
+                    format="'avif'"
+                />
             </div>
             <div class="c-about__text">
                 <h3>Behind the Scenes</h3>
-                <p>We take you behind the scenes of Gregs exclusive marrow collection</p>
+                <p>We take you behind the scenes of Greg's exclusive marrow collection</p>
             </div>
 
             <div class="c-about__img-container">
                 <div class="c-about__img c-about__img--1">
                     <span>001</span>
-                    <img src="https://source.unsplash.com/random/900×900/?marrow,courgette">
+                    <NuxtImg
+                        src="about_1.png"
+                        sizes="100vw sm:50vw md:400px lg:100vw"
+                        format="'avif'"
+                    />
+                    <!-- <img src="https://source.unsplash.com/random/900×900/?marrow,courgette"> -->
                 </div>
                 <div class="c-about__img c-about__img--2">
                     <span>002</span>
-                    <img src="https://source.unsplash.com/random/900×900/?marrow,courgette">
+                    <NuxtImg
+                        src="about_2.png"
+                        sizes="100vw sm:50vw md:400px lg:100vw"
+                        format="'avif'"
+                    />
+                    <!-- <img src="https://source.unsplash.com/random/900×900/?marrow,courgette"> -->
                 </div>
                 <div class="c-about__img c-about__img--3">
                     <span>003</span>
-                    <img src="https://source.unsplash.com/random/900×900/?marrow,courgette">
+                    <NuxtImg
+                        src="about_3.png"
+                        sizes="100vw sm:50vw md:400px lg:100vw"
+                        format="'avif'"
+                    />
+                    <!-- <img src="https://source.unsplash.com/random/900×900/?marrow,courgette"> -->
                 </div>
             </div>
         </div>
@@ -46,16 +65,24 @@
         overflow: hidden;
     }
     .c-about__main-img {
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
         width: 100%;
+        height: 70vw;
+        overflow: hidden;
         margin-bottom: $spacer-l;
         padding-top: $spacer-xl;
+        position: relative;
         img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 200%;
+            object-fit: cover;
+            object-position: center;
+            padding: 0;
         }
         @include mq($from: desktop) {
-            aspect-ratio: 25 / 10;
+            height: 30vw;
         }
     }
     .c-about__text {
@@ -68,7 +95,7 @@
         }
         p {
             @include font-size-4;
-            font-family: serif;
+            @include ff-serif;
             line-height: 1;
             text-wrap: balance
         }
@@ -136,7 +163,7 @@
 
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUnmounted, ref} from 'vue';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -144,8 +171,30 @@ const main = ref();
 let ctx;
 gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
-  ctx = gsap.context((self) => {
+const heroImgContainer = ref(0)
+
+onMounted(async () => {
+
+  ctx = gsap.context(async (self) => {
+
+    const heroImgContainerSelector = self.selector('.c-about__main-img');
+    const heroImgSelector = self.selector('.c-about__main-img img');
+
+    gsap.utils.toArray(heroImgContainerSelector).forEach(function(container) {
+        let heroImage = container.querySelector('img');
+
+        gsap.to(heroImage, {
+            y: () => heroImgContainer.value.offsetHeight - heroImgSelector[0].offsetHeight,
+            scale: 1.15,
+            scrollTrigger: {
+                trigger: container,
+                scrub: 2,
+                pin: false,
+                invalidateOnRefresh: true
+            },
+        });
+    }); 
+
     const aboutImgs = self.selector('.c-about__img-container');
 
     const aboutImg1 = self.selector('.c-about__img--1 img');
@@ -166,8 +215,8 @@ onMounted(() => {
         clipPath: 'inset(0%)',
         scrollTrigger: {
             trigger: '.c-about__img-container',
-            start: 'top top',
-            end: 'bottom bottom',
+            start: 'top top+=150px',
+            end: 'bottom bottom-=150px',
             scrub: true,
         },
     });
@@ -186,8 +235,8 @@ onMounted(() => {
         clipPath: 'inset(0%)',
         scrollTrigger: {
             trigger: '.c-about__img-container',
-            start: 'top top',
-            end: 'bottom bottom',
+            start: 'top top+=150px',
+            end: 'bottom bottom-=150px',
             scrub: true,
         },
     });
@@ -206,8 +255,8 @@ onMounted(() => {
         clipPath: 'inset(0%)',
         scrollTrigger: {
             trigger: '.c-about__img-container',
-            start: 'top top',
-            end: 'bottom bottom',
+            start: 'top top+=150px',
+            end: 'bottom bottom-=150px',
             scrub: true,
         },
     });

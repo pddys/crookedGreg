@@ -5,6 +5,7 @@
     <aboutSection />
   </main>
   <footerSection />
+  <svgFilter />
 </template>
 
 <style>

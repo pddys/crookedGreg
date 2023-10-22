@@ -4,13 +4,20 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const main = ref();
+const phContainer = ref();
+
 let ctx;
 gsap.registerPlugin(ScrollTrigger);
+
+console.log(phContainer)
 
 
 onMounted(() => {
   ctx = gsap.context((self) => {
     const boxes = self.selector('.c-ph__img');
+
+    let containerHeight = phContainer.value.offsetHeight / 2
+    console.log(containerHeight)
 
     const box1 = self.selector('.c-ph__img:first-of-type');
     const box2 = self.selector('.c-ph__img:nth-of-type(2n)');
@@ -21,12 +28,12 @@ onMounted(() => {
     })
 
     gsap.to(box1, {
-        y: 150,
+        y: containerHeight + 50,
         opacity: 0.1,
         scrollTrigger: {
             trigger: '.c-ph',
             start: 'top top',
-            end: 'bottom bottom',
+            end: 'bottom bottom-=150px',
             scrub: true,
         },
     });
@@ -36,12 +43,12 @@ onMounted(() => {
     })
 
     gsap.to(box2, {
-        y: 150,
+        y: containerHeight,
         opacity: 0.1,
         scrollTrigger: {
             trigger: '.c-ph',
             start: 'top top',
-            end: 'bottom bottom',
+            end: 'bottom bottom-=150px',
             scrub: true,
         },
     });
@@ -51,12 +58,12 @@ onMounted(() => {
     })
 
     gsap.to(box3, {
-        y: 150,
+        y: containerHeight - 50,
         opacity: 0.1,
         scrollTrigger: {
             trigger: '.c-ph',
             start: 'top top',
-            end: 'bottom bottom',
+            end: 'bottom bottom-=150px',
             scrub: true,
         },
     });
@@ -88,15 +95,25 @@ onUnmounted(() => {
             <h1 class="c-ph__header-title">Pizza & Marrow Emporium</h1>
             <span class="c-ph__header-subtitle">Each pizza is a living, breathing entity, shaped by the whispers of user insights and imbued with incantations of innovation.</span>
         </div>
-        <div class="c-ph__img-container">
+        <div class="c-ph__img-container" ref="phContainer">
             <div class="c-ph__img">
-                <img src="https://source.unsplash.com/random/900×900/?wallpaper,nature">
-            </div>
+                <NuxtImg
+                    src="about__hero.png"
+                    sizes="100vw sm:50vw md:400px lg:100vw"
+                    format="'avif'"
+                />            </div>
             <div class="c-ph__img">
-                <img src="https://source.unsplash.com/random/900×900/?wallpaper,nature">
-            </div>
+                <NuxtImg
+                    src="about__hero.png"
+                    sizes="100vw sm:50vw md:400px lg:100vw"
+                    format="'avif'"
+                />            </div>
             <div class="c-ph__img">
-                <img src="https://source.unsplash.com/random/900×900/?wallpaper,nature">
+                <NuxtImg
+                    src="about__hero.png"
+                    sizes="100vw sm:50vw md:400px lg:100vw"
+                    format="'avif'"
+                />
             </div>
         </div>
         <div class="c-ph__footer">
@@ -151,7 +168,7 @@ onUnmounted(() => {
     }
     .c-ph__header-pretitle {
         @include font-size-3;
-        font-family: serif;
+        @include ff-serif;
         line-height: 1;
         max-width: 300px;
         margin-bottom: 0.5em;

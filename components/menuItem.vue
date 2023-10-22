@@ -1,17 +1,18 @@
 <template>
     <div class="c-menu-item">
-        <div class="c-menu-item__img">
-            <img src="https://source.unsplash.com/random/900×900/?pizza">
+        <div v-if="imageUrl" class="c-menu-item__img">
+            <NuxtImg
+                :src="`${imageUrl}`"
+                sizes="100vw sm:50vw md:400px"
+                format="'avif'"
+                />
         </div>
         <div class="c-menu-item__text">
-            <h3 class="c-menu-item__title">Grilled Courgette and Goat Cheese Pizza:</h3>
-            <ul class="c-menu-item__ingredients">
-                <li>Thinly sliced grilled courgette/zucchini.</li>
-                <li>Crumbled goat cheese or feta cheese.</li>
-                <li>Red onion slices.</li>
-                <li>Fresh basil leaves.</li>
-                <li>Olive oil drizzle</li>
-                <li>Salt and Pepper to taste</li>
+            <h3 class="c-menu-item__title" v-if="title">{{ title }}</h3>
+            <ul class="c-menu-item__ingredients" v-if="ingredients.length">
+                <li v-for="item in ingredients" :key="item.ingredients">
+                    {{ item }}
+                </li>
             </ul>
         </div>
     </div>
@@ -24,6 +25,8 @@
         flex-direction: column;
         gap: $spacer-l;
         padding-bottom: $spacer-xl;
+        max-width: 1000px;
+        margin: 0 auto;
         @include mq($from: mobile) {
             flex-direction: row;
             gap: $spacer-xl;
@@ -42,6 +45,7 @@
     }
     .c-menu-item__title {
         @include font-size-3;
+        @include ff-serif;
         line-height: 1;
         margin-bottom: $spacer-m;
         &::first-letter {
@@ -50,8 +54,28 @@
     }
     .c-menu-item__ingredients {
         margin-left: $spacer-l;
+        @include font-light;
     }
 </style>
 
 <script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: 'Grilled Courgette and Goat Cheese Pizza',
+      required: false,
+    },
+    imageUrl: {
+      type: String,
+      default: 'https://source.unsplash.com/random/900×900/?pizza',
+      required: false,
+    },
+    ingredients: {
+      type: Array,
+      default: ['Fresh basil leaves.', 'Olive oil drizzle', 'Salt and Pepper to taste'],
+      required: false,
+    }
+  }
+}
 </script>
