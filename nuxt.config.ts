@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
-    '@nuxt/image',
+    '@nuxt/image-edge',
   ],
   css: ["@/assets/sass/global.scss"],
   vite: {
@@ -19,8 +19,9 @@ export default defineNuxtConfig({
   image: {
     format: 'avif',
     dir: 'public/images',
-    cloudinary: {
-      baseURL: 'https://res.cloudinary.com/dbc17l8se/image/upload/'
+    provider: 'netlify',
+    netlify: {
+      baseURl: process.env.IMAGES_URL
     },
     screens: {
       'xs': 320,
