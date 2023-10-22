@@ -98,7 +98,6 @@ onUnmounted(() => {
         <div class="c-ph__img-container" ref="phContainer">
             <div class="c-ph__img">
                 <NuxtImg
-                    provider="cloudinary" 
                     src="/about__hero"
                     :height="500"
                     :width="500"
@@ -108,7 +107,6 @@ onUnmounted(() => {
             </div>
             <div class="c-ph__img">
                 <NuxtImg
-                    provider="cloudinary" 
                     src="/about__hero"
                     :height="500"
                     :width="500"
@@ -118,7 +116,6 @@ onUnmounted(() => {
             </div>
             <div class="c-ph__img">
                 <NuxtImg
-                    provider="cloudinary" 
                     src="/about__hero"
                     :height="500"
                     :width="500"
