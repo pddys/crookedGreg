@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
-    '@nuxt/image-edge',
+    '@nuxt/image',
   ],
   css: ["@/assets/sass/global.scss"],
   vite: {
