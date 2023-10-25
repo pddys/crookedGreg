@@ -19,7 +19,6 @@ export default defineNuxtConfig({
   image: {
     format: 'avif',
     dir: 'public/images',
-    provider: 'ipxStatic',
     screens: {
       'xs': 320,
       'sm': 640,
