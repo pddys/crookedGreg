@@ -3,7 +3,7 @@
         <div class="c-about__inner">
             <div ref="heroImgContainer" class="c-about__main-img">
                 <NuxtImg
-                    src="about__hero.png"
+                    src="/images/about__hero.png"
                     sizes="100vw sm:50vw md:400px lg:100vw"
                     format="'avif'"
                 />
@@ -17,7 +17,7 @@
                 <div class="c-about__img c-about__img--1">
                     <span>001</span>
                     <NuxtImg
-                        src="about_1.png"
+                        src="/images/about_1.png"
                         sizes="100vw sm:50vw md:400px lg:100vw"
                         format="'avif'"
                     />
@@ -26,7 +26,7 @@
                 <div class="c-about__img c-about__img--2">
                     <span>002</span>
                     <NuxtImg
-                        src="about_2.png"
+                        src="/images/about_2.png"
                         sizes="100vw sm:50vw md:400px lg:100vw"
                         format="'avif'"
                     />
@@ -35,7 +35,7 @@
                 <div class="c-about__img c-about__img--3">
                     <span>003</span>
                     <NuxtImg
-                        src="about_3.png"
+                        src="/images/about_3.png"
                         sizes="100vw sm:50vw md:400px lg:100vw"
                         format="'avif'"
                     />

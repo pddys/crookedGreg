@@ -98,19 +98,19 @@ onUnmounted(() => {
         <div class="c-ph__img-container" ref="phContainer">
             <div class="c-ph__img">
                 <NuxtImg
-                    src="/about__hero.png"
+                    src="/images/about__hero.png"
                     sizes="100vw sm:50vw md:400px lg:100vw"
                 />
             </div>
             <div class="c-ph__img">
                 <NuxtImg
-                    src="/about__hero.png"
+                    src="/images/about__hero.png"
                     sizes="100vw sm:50vw md:400px lg:100vw"
                 />
             </div>
             <div class="c-ph__img">
                 <NuxtImg
-                    src="/about__hero.png"
+                    src="/images/about__hero.png"
                     sizes="100vw sm:50vw md:400px lg:100vw"
                 />
             </div>
