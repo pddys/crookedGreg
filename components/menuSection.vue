@@ -20,7 +20,7 @@
                     'Olive oil drizzle',
                     'Salt and Pepper to taste'
                 ]"
-                imageUrl="/menuItems/marrow_and_goats_cheese_pizza.png"
+                imageUrl="images/menuItems/marrow_and_goats_cheese_pizza.png"
             />
             <menuItem
                 title="Marrow, Ricotta, and Lemon Zest Pizza"
@@ -31,7 +31,7 @@
                     'Fresh rosemary leaves',
                     'Drizzle of extra-virgin olive oil',
                 ]"
-                imageUrl="/menuItems/marrow_ricotta_rosemary_and_lemon_zest_pizza.png"
+                imageUrl="images/menuItems/marrow_ricotta_rosemary_and_lemon_zest_pizza.png"
             />
             <menuItem
                 title="Marrow, Pesto, and Pine Nut Pizza"
@@ -42,7 +42,7 @@
                     'Shredded Parmesan or Asiago cheese',
                     'Fresh arugula (rocket) for topping after baking',
                 ]"
-                imageUrl="/menuItems/marrow_pesto_and_pine_nut_pizza.png"
+                imageUrl="images/menuItems/marrow_pesto_and_pine_nut_pizza.png"
             />
         </div>
     </section>
