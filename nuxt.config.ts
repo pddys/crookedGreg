@@ -19,6 +19,10 @@ export default defineNuxtConfig({
   image: {
     format: 'avif',
     dir: 'assets/images',
+    provider: 'netlify',
+    netlify: {
+      baseURl: 'https://xxxxx.netlify.app'
+    },
     screens: {
       'xs': 320,
       'sm': 640,
