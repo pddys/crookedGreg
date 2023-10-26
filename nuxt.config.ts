@@ -21,7 +21,7 @@ export default defineNuxtConfig({
     dir: 'assets/images',
     provider: 'netlify',
     netlify: {
-      baseURl: 'https://xxxxx.netlify.app'
+      baseURl: 'https://xxxxx.netlify.app/images'
     },
     screens: {
       'xs': 320,
