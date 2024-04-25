@@ -68,7 +68,7 @@
         width: 100%;
         height: 70vw;
         overflow: hidden;
-        margin-bottom: $spacer-l;
+        margin-bottom: $spacer-xl;
         padding-top: $spacer-xl;
         position: relative;
         img {

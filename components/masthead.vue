@@ -9,9 +9,6 @@ const phContainer = ref();
 let ctx;
 gsap.registerPlugin(ScrollTrigger);
 
-console.log(phContainer)
-
-
 onMounted(() => {
   ctx = gsap.context((self) => {
     const boxes = self.selector('.c-ph__img');
@@ -254,6 +251,20 @@ onUnmounted(() => {
         }
         @include mq($from: desktop) {
             padding: 0 $spacer-xl 0 $spacer-xl;
+        }
+        &:has(a:hover, a:focus) {
+            a {
+                opacity: 0.5;
+            }
+        }
+        a {
+            display: block;
+            transition: all 250ms ease;
+            &:hover,
+            &:focus {
+                opacity: 1 !important;
+                transform: translateY(-1px);
+            }
         }
     }
 </style>

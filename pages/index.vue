@@ -3,6 +3,8 @@
     <masthead />
     <menuSection />
     <aboutSection />
+    <faqSection />
+    <employeeSection />
   </main>
   <footerSection />
   <svgFilter />
