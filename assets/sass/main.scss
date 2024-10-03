@@ -1,47 +1,4 @@
 @import "_reset.scss";
-
-$white: white;
-$black: black;
-$highlight: #FF0883;
-
-// Breakpoints 
-$mobile:	575.98px;
-$tablet:	767.98px;
-$desktop:	991.98px;
-$wide:    	1199.98px;
-$superwide:	1399.98px;
-
-// Site Width
-$max-site-width: 1600px;
-
-$spacer: 1rem !default;
-$spacers: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * .25),
-    2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-    5: ($spacer * 3)
-  ),
-  $spacers
-);
-
-// Aliases for easy use
-// modified to use the map based on the new key
-$spacer-xs: map-get($spacers, 1);
-$spacer-s: map-get($spacers, 2);
-$spacer-m: map-get($spacers, 3);
-$spacer-l: map-get($spacers, 4);
-$spacer-xl: map-get($spacers, 5);
-
-
-// Standardise some UI treatments.
-$global-radius: 4px !default;
-$global-transition: all 300ms ease-in-out !default;
-
 @import "_fonts.scss";
 @import "_mq.scss";
 @import "_hide.scss";

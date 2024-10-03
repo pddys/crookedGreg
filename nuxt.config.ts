@@ -6,12 +6,12 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
   ],
-  css: ["@/assets/sass/global.scss"],
+  // css: ["@/assets/sass/global.scss"],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/sass/main.scss";',
+          additionalData: '@import "@/assets/sass/global.scss";',
         },
       },
     },

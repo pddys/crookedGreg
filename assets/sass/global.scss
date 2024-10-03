@@ -1,8 +1,8 @@
 @import "_reset.scss";
 
-$white: white;
-$black: black;
-$highlight: #FF0883;
+$white: #f9efe4;
+$black: #040404;
+$highlight: #FF5A5F;
 
 // Breakpoints 
 $mobile:	575.98px;
@@ -50,14 +50,18 @@ $global-transition: all 300ms ease-in-out !default;
 
 html {
 	scroll-behavior: smooth;
-	background: #0b090a;
-	color: #f5f3f4;
+	background: $black;
+	color: $white;
   @include ff-sans;
 }
 
 *:focus-visible {
 	outline: 2px solid $highlight;
 	outline-offset: 2px;
+}
+
+*::selection {
+  background-color: rgba($highlight, 0.35);
 }
 
 .visually-hidden {
@@ -69,3 +73,5 @@ html {
     white-space: nowrap;
     width: 1px;
 }
+
+@import "loadAnimation.scss";
