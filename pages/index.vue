@@ -1,4 +1,5 @@
 <template>
+  <loading />
   <main class="snap-y snap-proximity o-wrapper">
     <div class="overlay"></div>
     <masthead />
